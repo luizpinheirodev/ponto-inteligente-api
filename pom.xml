@@ -11,7 +11,7 @@
 	<groupId>br.com.luiz</groupId>
 	<artifactId>ponto-inteligente</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<nome>PontoInteligente</nome>
+	<name>PontoInteligente</name>
 	<description>Projeto desenvolvido para ponto</description>
 
 	<properties>
