@@ -1,26 +1,22 @@
 package br.com.luiz.pontointeligente.dtos;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.br.CNPJ;
-import org.hibernate.validator.constraints.br.CPF;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import java.util.Optional;
 
-public class CadastroPFDto {
+public class FuncionarioDto {
 
     private Long id;
     private String nome;
     private String email;
-    private String senha;
-    private String cpf;
+    private Optional<String> senha = Optional.empty();
     private Optional<String> valorHora = Optional.empty();
     private Optional<String> qtdHorasTrabalhoDia = Optional.empty();
     private Optional<String> qtdHorasAlmoco = Optional.empty();
-    private String cnpj;
 
-    public CadastroPFDto() {
+    public FuncionarioDto() {
     }
 
     public Long getId() {
@@ -52,23 +48,12 @@ public class CadastroPFDto {
         this.email = email;
     }
 
-    @NotEmpty(message = "Senha não pode ser vazia.")
-    public String getSenha() {
+    public Optional<String> getSenha() {
         return senha;
     }
 
-    public void setSenha(String senha) {
+    public void setSenha(Optional<String> senha) {
         this.senha = senha;
-    }
-
-    @NotEmpty(message = "CPF não pode ser vazio.")
-    @CPF(message="CPF inválido")
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
     }
 
     public Optional<String> getValorHora() {
@@ -95,28 +80,16 @@ public class CadastroPFDto {
         this.qtdHorasAlmoco = qtdHorasAlmoco;
     }
 
-    @NotEmpty(message = "CNPJ não pode ser vazio.")
-    @CNPJ(message="CNPJ inválido.")
-    public String getCnpj() {
-        return cnpj;
-    }
-
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
-    }
-
     @Override
     public String toString() {
-        return "CadastroPFDto{" +
+        return "FuncionarioDto{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
-                ", senha='" + senha + '\'' +
-                ", cpf='" + cpf + '\'' +
+                ", senha=" + senha +
                 ", valorHora=" + valorHora +
                 ", qtdHorasTrabalhoDia=" + qtdHorasTrabalhoDia +
                 ", qtdHorasAlmoco=" + qtdHorasAlmoco +
-                ", cnpj='" + cnpj + '\'' +
                 '}';
     }
 }
